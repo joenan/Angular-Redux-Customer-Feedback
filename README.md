@@ -1,4 +1,4 @@
-# Angular Redux Customer Feedback with Search highlighting
+# Angular Redux Customer Feedback
 
 <img src="https://github.com/joenan/Angular-Redux-Customer-Feedback/blob/main/demo.gif" title="React Redux Customer and Feedback Demo"/>
 
