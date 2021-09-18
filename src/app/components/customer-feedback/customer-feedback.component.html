@@ -94,7 +94,8 @@
             <div class="text-center subcribe-form mb-2">
               <form style="max-width:800px;">
                 <input type="text" id="name" name="name" class="rounded-pill shadow" placeholder="Search Feedbacks..."
-                  style="padding: 5px 20px;" (input)="updateSearch($event)" autocomplete>
+                  style="padding: 5px 20px;" (input)="updateSearch($event)" [(ngModel)]="feedbacksearchfilter"
+                  name="feedbacksearchfilter" autocomplete>
                 <button type="button" style="padding: 2px 20px;" class="btn btn-pills btn-primary"
                   (click)="showFeedBackForm()">Add New</button>
               </form>
@@ -125,7 +126,7 @@
                     (keyup.enter)="addNewCustomerFeedback()"></td>
               </tr>
 
-              <tr *ngFor="let list of feedbackList;let i=index">
+              <tr *ngFor="let list of feedbackList|filter:feedbacksearchfilter;let i=index">
                 <td> <i class="fa fa-comments"></i></td>
 
                 <td class="text-left small" [innerHTML]="list.feedback | highlight:

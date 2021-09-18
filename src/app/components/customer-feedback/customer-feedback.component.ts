@@ -70,8 +70,7 @@ export class CustomerFeedbackComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.customerList);
-    console.log(this.feedbackList);
+
   }
 
 
