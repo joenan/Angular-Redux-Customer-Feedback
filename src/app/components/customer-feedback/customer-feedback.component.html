@@ -1,0 +1,157 @@
+<!-- Hero Start -->
+<section class="bg-half bg-light d-table w-100 " style="padding: 10px 0 90px;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 text-center">
+        <div class="page-next-level">
+          <!-- <h4 class="title mt-5"> Customer Feedback </h4> -->
+          <div class="page-next">
+            <nav aria-label="breadcrumb" class="d-inline-block">
+              <ul class="breadcrumb bg-white rounded shadow mb-0">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Angular Redux Customer Feedback App</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!--end col-->
+    </div>
+    <!--end row-->
+  </div>
+  <!--end container-->
+</section>
+<!--end section-->
+<div class="position-relative">
+  <div class="shape overflow-hidden text-white">
+    <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+    </svg>
+  </div>
+</div>
+<!-- Hero End -->
+
+
+
+
+<!-- Start Forums -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="text-center subcribe-form mb-2">
+          <form style="max-width:800px;">
+            <input type="text" id="name" name="name" class="rounded-pill shadow" placeholder="Search Customers..."
+              style="padding: 5px 20px;" autocomplete>
+            <button type="button" style="padding: 2px 20px;" class="btn btn-pills btn-primary"
+              (click)="showCustomerForm()">Add New</button>
+          </form>
+          <!--end form-->
+        </div>
+
+        <div class="table-responsive bg-white shadow rounded mt-4 ">
+
+          <table class="table mb-0 table-center table-sm">
+            <thead class="bg-light">
+              <tr>
+                <th scope="col" class="border-bottom"></th>
+                <th scope="col" class="border-bottom" style="min-width: 300px;">Customers</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="showCustForm">
+                <td><i class="fa fa-user-plus"></i></td>
+                <td><input type="text" class="form-control form-control-sm border-0 " style="color: blue;"
+                    placeholder="New Customer" [(ngModel)]="customer" name="name" (keyup.enter)="addCustomer()"></td>
+              </tr>
+              <tr *ngFor="let list of customerList  | paginate: {
+                itemsPerPage: 10, currentPage: p };let i=index" style="cursor: pointer;"
+                (click)="getSelectedCustomerFeedback(list)"
+                [ngClass]="{'class_name': list.name === currentCustomerName?.name  }">
+                <td><i class="fa fa-user-circle"></i></td>
+                <td class="text-left small">
+                  {{list.name}}
+                </td>
+              </tr>
+
+
+            </tbody>
+          </table>
+
+        </div>
+        <div class="float-right mt-2">
+          <pagination-controls (pageChange)="p = $event" class="float-right mt-4"></pagination-controls>
+        </div>
+      </div>
+      <!--end col-->
+
+      <div class="col-lg-5 mt-4 mt-lg-0 pt-0 pt-lg-0">
+
+        <div class="widget mb-2 pb-0">
+          <!-- SEARCH -->
+          <div class="widget">
+            <div class="text-center subcribe-form mb-2">
+              <form style="max-width:800px;">
+                <input type="text" id="name" name="name" class="rounded-pill shadow" placeholder="Search Feedbacks..."
+                  style="padding: 5px 20px;" (input)="updateSearch($event)" autocomplete>
+                <button type="button" style="padding: 2px 20px;" class="btn btn-pills btn-primary"
+                  (click)="showFeedBackForm()">Add New</button>
+              </form>
+              <!--end form-->
+            </div>
+
+          </div>
+          <!-- SEARCH -->
+        </div>
+
+        <!-- SEARCH -->
+
+        <div class="table-responsive bg-white shadow rounded mt-4 ">
+          <table class="table mb-0 table-center table-sm" style="text-align: left;">
+            <thead class="bg-light">
+              <tr>
+                <th scope="col" class="border-bottom"></th>
+                <th scope="col" class="border-bottom" style="min-width: 300px;">{{currentCustomerName?.name}} Feedback
+                </th>
+
+              </tr>
+            </thead>
+            <tbody *ngIf="showCustomerFeedbackList">
+              <tr *ngIf="showFeedForm">
+                <td><i class="fa fa-user-plus"></i></td>
+                <td><input type="text" class="form-control form-control-sm border-0 " style="color: blue;"
+                    placeholder="New Feedback" [(ngModel)]="feedback" name="feedback"
+                    (keyup.enter)="addNewCustomerFeedback()"></td>
+              </tr>
+
+              <tr *ngFor="let list of feedbackList;let i=index">
+                <td> <i class="fa fa-comments"></i></td>
+
+                <td class="text-left small" [innerHTML]="list.feedback | highlight:
+                searchfilter">{{list.feedback}}</td>
+
+              </tr>
+
+            </tbody>
+
+            <tbody *ngIf="showCustomerFeedbackList==false">
+              <div class="card-body">
+                <p class="text-center" style="color: rgb(128, 128, 128);">No Feedbacks </p>
+                <!-- <p class="text-center" style="color: rgb(128, 128, 128);">Select Customer to view feedbacks </p> -->
+              </div>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- </div>
+        </div> -->
+      </div>
+      <!--end col-->
+    </div>
+    <!--end row-->
+  </div>
+  <!--end container-->
+</section>
+<!--end section-->
+<!-- Start Forums -->
