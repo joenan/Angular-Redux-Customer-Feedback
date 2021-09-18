@@ -1,6 +1,6 @@
-# SolvemateTask
+# Angular Redux Customer Feedback
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+<img src="https://github.com/joenan/Angular-Redux-Customer-Feedback/blob/main/demo.gif" title="React Redux Customer and Feedback Demo"/>
 
 ## Development server
 
