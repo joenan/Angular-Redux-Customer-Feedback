@@ -1,6 +1,6 @@
 # Angular Redux Customer Feedback
 
-<img src="https://github.com/joenan/Angular-Redux-Customer-Feedback/blob/main/demo.gif" title="React Redux Customer and Feedback Demo"/>
+<img src="https://github.com/joenan/Angular-Redux-Customer-Feedback/blob/main/AngularDemo.gif" title="React Redux Customer and Feedback Demo"/>
 
 ## Development server
 
