@@ -63,7 +63,8 @@
               <tr *ngIf="showCustForm">
                 <td><i class="fa fa-user-plus"></i></td>
                 <td><input type="text" class="form-control form-control-sm border-0 " style="color: blue;"
-                    placeholder="New Customer" [(ngModel)]="customer" name="name" (keyup.enter)="addCustomer()"></td>
+                    placeholder="New Customer" [(ngModel)]="customer" name="customer" (keydown)="addCustomer($event)">
+                </td>
               </tr>
               <tr *ngFor="let list of customerList  | paginate: {
                 itemsPerPage: 10, currentPage: p };let i=index" style="cursor: pointer;"

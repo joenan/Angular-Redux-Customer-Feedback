@@ -73,21 +73,34 @@ export class CustomerFeedbackComponent implements OnInit {
 
   }
 
-
-  addCustomer() {
-    if (this.customer == '') {
-      this.toastr.error("", "Please fill a Customer")
-      return
-    }
-    this.store.dispatch({
-      type: 'ADD_CUSTOMER',
-      payload: <Customer>{
-        id: this.customerList.length + 1,
-        name: this.customer,
-      }
-    });
+  clearCustomerInputAndCloseForm() {
+    this.customer = ''
     this.showCustForm = false
-    this.toastr.success('', "Customer Created")
+  }
+  
+  addCustomer(e: any) {
+    let x = e.keyCode;
+    if (x === 27) {
+      this.clearCustomerInputAndCloseForm()
+    }
+
+    if (e.key === "Enter") {
+      if (this.customer === '') {
+        this.toastr.error("", "Please fill a Customer")
+        return
+      }
+      this.store.dispatch({
+        type: 'ADD_CUSTOMER',
+        payload: <Customer>{
+          id: this.customerList.length + 1,
+          name: this.customer,
+        }
+      });
+      this.clearCustomerInputAndCloseForm()
+      this.toastr.success('', "Customer Created")
+
+    }
+
 
   }
 
